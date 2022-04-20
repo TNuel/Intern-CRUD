@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intern Form</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="title">
+        <h1>INTERNS</h1>
+        <button type="button" id="addEmployee" class="addEmployee">Add Employee</button>
+    </div>
+    <!-- <td class="intern"> -->
+        <table >
+            <thead>
+                <tr>
+                    <th>S/N</th>
+                    <th id="fullName">NAME</th>
+                    <th>SALARY</th>
+                    <th>DEPARTMENT</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="internList">
+                
+            </tbody>
+        </table>
+    
+    <div class="desc" id="desc"> 
+        <table>
+            <tr>
+                <td>
+                    <form autocomplete="off" class="addInfo"  action="">
+                        <div>
+                            <label action="name">First Name</label>
+                            <input required type="text" name="internName" class="firstName">
+                        </div>
+                        <div>
+                            <label action="name">Last Name</label>
+                            <input required type="text" name="internName" class="lastName">
+                        </div>
+                        <div>
+                            <label action="salary">Salary</label>
+                            <input required type="number" name="internSalary" class="salary">
+                        </div>
+                        <div>
+                            <label action="serialNumber">Department</label>
+                            <input required type="text" name="internDept" class="dept">
+                        </div>
+                        <div class="form_action--button">
+                            <input type="submit" value="submit">
+                        </div>
+                    </form>
+                </td>
+            </tr>
+           
+        </table>
+        <button class="close" id="close">X</button>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
