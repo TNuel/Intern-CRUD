@@ -27,10 +27,10 @@ const displayInterns= (intern) =>{
     row.innerHTML = ` <th>${intern.id}</th>
     <td>${intern.firstName} ${intern.lastName}</td>
     <td>${intern.salary}</td>
-    <td>${intern.department}</td>
+    <td>${intern.dept}</td>
     <td>
-        <a class="icon"><i class="ri-pencil-line"></i></a>
-        <a class="icon"><i class="ri-delete-bin-2-fill"></i></a>
+        <a onClick='onEdit(this)' id="onEdit"><i class="ri-pencil-line"></i></a>
+        <a onClick='onDelete(this)' id="onDelete"><i class="ri-delete-bin-2-fill"></i></a>
     </td> `
     
     list.appendChild(row)
@@ -48,6 +48,8 @@ const displayInterns= (intern) =>{
     // salary.value = "";
     // department.value = "";
 }
+
+
 
 document.querySelector('DOMContentLoaded', getInterns())
 
@@ -75,7 +77,7 @@ btnSubmit.addEventListener('submit', (e) => {
         "firstName" : firstName,
         "lastName": lastName,
         "salary": salary,
-        "department": department
+        "dept": department
     }
 
     //clear Field
@@ -96,6 +98,30 @@ btnSubmit.addEventListener('submit', (e) => {
 
 })
 
+/// delete intern
+// document.querySelector('.internList').addEventListener('click',(e)=>{
+//     console.log(e.target.id);
+// }) 
+ const internList = document.querySelector('.internList')
+ internList.addEventListener('click',(e) =>{
+     console.log('body pressed');
+ })
+
+ function onEdit(td) {
+    //  document.getElementById('submit').innerText = 'Update'
+    selectedRow = td.parentElement.parentElement;
+    let name = selectedRow.cells[1].innerHTML
+    console.log(name)
+    var firstName = name.split('').slice(0,-1).join(' ');
+    var lastName = name.split('').slice(-1).join(' ');
+
+    //  document.getElementById("id").value = selectedRow.cells[0].innerHTML;
+     document.getElementById('firstName').value = firstName;
+     document.getElementById('lastName').value = lastName;
+     document.getElementById('salary').value = selectedRow.cells[2].innerHTML;
+     document.getElementById('dept').value = selectedRow.cells[3].innerHTML;
+ }
+
 
 const addEmployee = document.querySelector(".addEmployee")
 const  desc = document.querySelector(".desc")
@@ -110,5 +136,13 @@ close.addEventListener("click", ()=>{
 })
 
 // DELETE FUNCTION
+
+function onDelete(td){
+    if(confirm('Do you want to delete this record?')){
+        row = td.parentElement.parentElement;
+        console.log(row)
+        document.getElementById('tableList').deleteRow(row.rowIndex);
+    }
+}
 
 // document.querySelector()
